@@ -62,7 +62,7 @@ public class Activity6 {
 
 
         if(progressReader.equals("IN PROGRESS")) {
-            driver.findElement(By.xpath("xpath=(//input[@value='Mark Complete'])[2]")).click();
+            driver.findElement(By.xpath("//input[@value='Mark Complete'])[2]").click();
             value = true;
             driver.findElement(By.cssSelector(".ld-content-action:nth-child(3) .ld-text")).click();
             //driver.findElement(By.linkText("Next Lesson"));
