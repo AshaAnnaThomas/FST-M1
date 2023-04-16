@@ -35,37 +35,60 @@ public class Activity9 {
     @Test
     public void verifyCompleteLessonTest() {
 
-        driver.findElement(By.linkText("All Courses")).click();
+        driver.findElement(By.linkText("My Account")).click();
         String pageTitle = driver.getTitle();
+        Assert.assertEquals(pageTitle, "My Account – Alchemy LMS");
 
-        Assert.assertEquals(pageTitle, "All Courses – Alchemy LMS");
+        driver.findElement(By.linkText("Login")).click();
 
-        List<WebElement> links = driver.findElements(By.cssSelector(".entry-title"));
+        driver.findElement(By.id("user_login")).sendKeys("root");
+        driver.findElement(By.id("user_pass")).sendKeys("pa$$w0rd");
 
-        Assert.assertEquals(links.get(0).getText(), "Social Media Marketing");
-
-        driver.findElement(By.cssSelector("#post-69 .attachment-course-thumb")).click();
-
-        String newTitle = driver.getTitle();
-        Assert.assertEquals(newTitle, "Social Media Marketing – Alchemy LMS");
-
-        int myTime = 10;
-        Duration durationInSeconds = Duration.ofSeconds(myTime);
-
-        WebElement ele = driver.findElement(By.cssSelector("#ld-expand-83 .ld-item-title"));
-        Actions at = new Actions(driver);
-
-        at.moveToElement(ele).click();
+        driver.findElement(By.name("wp-submit")).click();
 
 
-        if (driver.findElement(By.cssSelector(".ld-status")).getText() =="In Progress") {
+
+        //driver.findElement(By.cssSelector("#ld-course-list-item-69 > div:nth-child(1) > a:nth-child(1) > span:nth-child(2)")).click();
+
+        driver.findElement(By.cssSelector("#ld-course-list-item-69 .ld-course-title")).click();
+
+        String socialMediaMarketingTitle = driver.getTitle();
+
+        System.out.println(socialMediaMarketingTitle);
+
+        Assert.assertEquals(socialMediaMarketingTitle, "Social Media Marketing – Alchemy LMS");
+
+        driver.findElement(By.cssSelector("#ld-expand-83 .ld-item-title")).click();
+
+        String getCurrentUrl = driver.getCurrentUrl();
+
+        Assert.assertEquals(getCurrentUrl, "https://alchemy.hguy.co/lms/lessons/developing-strategy/");
+
+        boolean value = false;
+
+        System.out.println(driver.findElement(By.cssSelector(".ld-status")).getText());
+
+        String progressReader = driver.findElement(By.cssSelector(".ld-status")).getText();
+
+
+
+        if(progressReader.equals("IN PROGRESS")) {
             driver.findElement(By.xpath("xpath=(//input[@value='Mark Complete'])[2]")).click();
-        } else if (driver.findElement(By.cssSelector(".ld-status")).getText() =="Complete") {
-            driver.findElement(By.linkText("Next Lesson"));
+            value = true;
+            driver.findElement(By.cssSelector(".ld-content-action:nth-child(3) .ld-text")).click();
+            //driver.findElement(By.linkText("Next Lesson"));
+        } else if(progressReader.equals("COMPLETE")) {
+            value = true;
+            driver.findElement(By.cssSelector(".ld-content-action:nth-child(3) .ld-text")).click();
+
         }
 
-        System.out.println(driver.getTitle());
+        System.out.println("Value of boolean value is :" + value);
 
+        //Once Completed, it moves to Monitoring & Digital Advertising – Alchemy LMS
+        Assert.assertEquals(driver.getTitle(), "Monitoring & Digital Advertising – Alchemy LMS");
+
+        Assert.assertEquals(driver.getCurrentUrl(), "https://alchemy.hguy.co/lms/lessons/monitoring-digital-advertising/");
 
     }
 
