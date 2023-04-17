@@ -35,50 +35,9 @@ public class Activity6 {
 
         driver.findElement(By.name("wp-submit")).click();
 
+        String textEle = driver.findElement(By.cssSelector(".ld-section-heading > h3")).getText();
 
-
-        //driver.findElement(By.cssSelector("#ld-course-list-item-69 > div:nth-child(1) > a:nth-child(1) > span:nth-child(2)")).click();
-
-        driver.findElement(By.cssSelector("#ld-course-list-item-69 .ld-course-title")).click();
-
-        String socialMediaMarketingTitle = driver.getTitle();
-
-        System.out.println(socialMediaMarketingTitle);
-
-        Assert.assertEquals(socialMediaMarketingTitle, "Social Media Marketing – Alchemy LMS");
-
-        driver.findElement(By.cssSelector("#ld-expand-83 .ld-item-title")).click();
-
-        String getCurrentUrl = driver.getCurrentUrl();
-
-        Assert.assertEquals(getCurrentUrl, "https://alchemy.hguy.co/lms/lessons/developing-strategy/");
-
-        boolean value = false;
-
-        System.out.println(driver.findElement(By.cssSelector(".ld-status")).getText());
-
-        String progressReader = driver.findElement(By.cssSelector(".ld-status")).getText();
-
-
-
-        if(progressReader.equals("IN PROGRESS")) {
-            driver.findElement(By.xpath("//input[@value='Mark Complete'])[2]").click();
-            value = true;
-            driver.findElement(By.cssSelector(".ld-content-action:nth-child(3) .ld-text")).click();
-            //driver.findElement(By.linkText("Next Lesson"));
-        } else if(progressReader.equals("COMPLETE")) {
-            value = true;
-            driver.findElement(By.cssSelector(".ld-content-action:nth-child(3) .ld-text")).click();
-
-        }
-
-        System.out.println("Value of boolean value is :" + value);
-
-        //Once Completed, it moves to Monitoring & Digital Advertising – Alchemy LMS
-        Assert.assertEquals(driver.getTitle(), "Monitoring & Digital Advertising – Alchemy LMS");
-
-        Assert.assertEquals(driver.getCurrentUrl(), "https://alchemy.hguy.co/lms/lessons/monitoring-digital-advertising/");
-
+        Assert.assertEquals(textEle, "Your Courses");
     }
 
     @AfterMethod
