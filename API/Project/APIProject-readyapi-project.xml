@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="1874fe5e-e969-4e91-95a4-548f600d458a" created="3.45.0" activeEnvironment="Default environment" name="APIProject" resourceRoot="" projectVersion="" updated="3.45.0 2023-04-03T14:41:27Z" xmlns:con="http://eviware.com/soapui/config">
+  <con:settings/>
+  <con:interface xsi:type="con:RestService" id="f5173f04-b870-4a8e-b61c-3ca06e2c4add" wadlVersion="http://wadl.dev.java.net/2009/02" name="https://api.github.com" type="rest" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <con:settings/>
+    <con:definitionCache type="TEXT" rootPart=""/>
+    <con:endpoints>
+      <con:endpoint>https://api.github.com</con:endpoint>
+    </con:endpoints>
+    <con:resource name="Emails" path="/user/emails" id="9258239f-88ed-4b64-996f-3e7883185479">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Emails" id="c2ec1138-f519-45a1-b707-46411b2e5dd7" method="GET">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>200</con:status>
+          <con:params/>
+          <con:element>Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="bb34181f-1c03-4ffb-a5f0-33d230f9f39a" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://api.github.com</con:endpoint>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="Keys" path="/user/keys" id="ff1ac718-b5d1-4d98-80cc-d8f1225ef388">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="Keys" id="6e8dec52-d50e-4642-9a86-97b790db64c1" method="POST">
+        <con:settings/>
+        <con:parameters/>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>422</con:status>
+          <con:params/>
+          <con:element xmlns:keys="https://api.github.com/user/keys">keys:Fault</con:element>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>201</con:status>
+          <con:params/>
+          <con:element xmlns:keys="https://api.github.com/user/keys">keys:Response</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="53d2ed7c-dc30-48ba-8249-e0e214356d3e" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://api.github.com</con:endpoint>
+          <con:parameters/>
+        </con:request>
+      </con:method>
+    </con:resource>
+    <con:resource name="KeyId" path="/user/keys/{keyId}" id="12484ad6-a229-48ce-b289-72e868472f0f">
+      <con:settings/>
+      <con:parameters/>
+      <con:method name="KeyId" id="389c88c4-4060-4fbf-b255-40f829abc900" method="DELETE">
+        <con:settings/>
+        <con:parameters>
+          <con:parameter required="true">
+            <con:name>keyId</con:name>
+            <con:value>keyId</con:value>
+            <con:style>TEMPLATE</con:style>
+            <con:default>keyId</con:default>
+            <con:path xsi:nil="true"/>
+            <con:description xsi:nil="true"/>
+          </con:parameter>
+        </con:parameters>
+        <con:representation type="FAULT">
+          <con:mediaType>application/json; charset=utf-8</con:mediaType>
+          <con:status>401</con:status>
+          <con:params/>
+          <con:element xmlns:ns="https://api.github.com/user/keys/80814051">ns:Fault</con:element>
+        </con:representation>
+        <con:representation type="REQUEST">
+          <con:mediaType>application/json</con:mediaType>
+          <con:params/>
+        </con:representation>
+        <con:representation type="RESPONSE">
+          <con:mediaType xsi:nil="true"/>
+          <con:status>204</con:status>
+          <con:params/>
+          <con:element>data</con:element>
+        </con:representation>
+        <con:request name="Request 1" id="52bfb225-a044-4308-af83-745c1ac62154" mediaType="application/json">
+          <con:settings/>
+          <con:endpoint>https://api.github.com</con:endpoint>
+          <con:parameters>
+            <con:entry key="keyId" value="keyId"/>
+          </con:parameters>
+          <con:parameterOrder>
+            <con:entry>keyId</con:entry>
+          </con:parameterOrder>
+        </con:request>
+      </con:method>
+    </con:resource>
+  </con:interface>
+  <con:testSuite id="93cf2b26-3f63-490f-a757-34f8bce60009" name="Test Suite">
+    <con:settings/>
+    <con:runType>SEQUENTIAL</con:runType>
+    <con:testCase id="40e04a73-e1e7-4223-a136-a3562f08febb" discardOkResults="false" failOnError="false" failTestCaseOnErrors="true" keepSession="false" name="Test Case" searchProperties="true" timeout="0">
+      <con:settings>
+        <con:setting id="IncludeOverview">true</con:setting>
+        <con:setting id="IncludeResults">true</con:setting>
+        <con:setting id="FlowLayout">false</con:setting>
+        <con:setting id="ErrorDetails">true</con:setting>
+        <con:setting id="IncludeCoverage">true</con:setting>
+        <con:setting id="GeneratableJUnitReport@Style">Multiple Pages</con:setting>
+        <con:setting id="GeneratableJUnitReport@Folder">/Users/ashaannathomas/IdeaProjects/FST_API</con:setting>
+      </con:settings>
+      <con:testStep type="restrequest" name="GETRequest" id="5dbbf99f-f772-4187-9da4-8b8e9ecc335c">
+        <con:settings/>
+        <con:config service="https://api.github.com" resourcePath="/user/emails" methodName="Emails" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="GETRequest" id="bb34181f-1c03-4ffb-a5f0-33d230f9f39a" mediaType="application/json">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.github.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://api.github.com/user/emails</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="6e38106c-55cc-4e4c-a441-8fe8d9e2f2c6" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>200</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="cbb81f92-8d6b-49c4-88d4-bc531c47b3ec" name="Contains">
+              <con:configuration>
+                <token>"Asha.Anna.Thomas@ibm.com"</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="DataAndMetadataAssertion" id="93540f9c-0025-422f-b881-9c2c93ab4cf7" name="Smart Assertion">
+              <con:configuration xsi:type="con:DataAndMetadataAssertion">
+                <con:mode>Received Data</con:mode>
+                <con:elements>
+                  <con:path>$[0]['email']</con:path>
+                  <con:element>email</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>Asha.Anna.Thomas@ibm.com</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[0]['primary']</con:path>
+                  <con:element>primary</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>3</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[0]['verified']</con:path>
+                  <con:element>verified</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>3</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[0]['visibility']</con:path>
+                  <con:element>visibility</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>private</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[1]['email']</con:path>
+                  <con:element>email</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>115140052+asha-anna-thomas@users.noreply.github.com</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>1</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[1]['primary']</con:path>
+                  <con:element>primary</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>false</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>3</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[1]['verified']</con:path>
+                  <con:element>verified</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>true</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>3</con:expectedDataType>
+                </con:elements>
+                <con:elements>
+                  <con:path>$[1]['visibility']</con:path>
+                  <con:element>visibility</con:element>
+                  <con:operatorId>1</con:operatorId>
+                  <con:enabled>true</con:enabled>
+                  <con:expectedValue>null</con:expectedValue>
+                  <con:caseSensitive>true</con:caseSensitive>
+                  <con:numberType>false</con:numberType>
+                  <con:expectedDataType>4</con:expectedDataType>
+                </con:elements>
+                <con:originalMessage>[{"email":"Asha.Anna.Thomas@ibm.com","primary":true,"verified":true,"visibility":"private"},{"email":"115140052+asha-anna-thomas@users.noreply.github.com","primary":false,"verified":true,"visibility":null}]</con:originalMessage>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="daab9989-8fc1-4f41-b369-0f5b40fc5da3" name="JSONPath Match">
+              <con:configuration>
+                <path>$[0]['email']</path>
+                <content>"Asha.Anna.Thomas@ibm.com"</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Count" id="4f34a1ed-0696-4909-b177-0476dabad9f4" name="JSONPath Count">
+              <con:configuration>
+                <path>[*]</path>
+                <content>2</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="POSTRequest" id="f0378687-8791-4486-8979-07772ba69b43">
+        <con:settings/>
+        <con:config service="https://api.github.com" resourcePath="/user/keys" methodName="Keys" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="POSTRequest" id="53d2ed7c-dc30-48ba-8249-e0e214356d3e" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.github.com</con:endpoint>
+            <con:request>{
+	"title": "TestKey",
+	"key": "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIGSwS9I44X9GAXT7si2z63o4D0mByPJ0u01Z5KW9IrDR"
+}</con:request>
+            <con:originalUri>https://api.github.com/user/keys</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="ca067d92-4004-415d-935d-2c8a169e8224" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>201</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="Simple Contains" id="7ad47af0-0b98-4fb0-b419-35ead8ed5027" name="Contains">
+              <con:configuration>
+                <token>"TestKey"</token>
+                <ignoreCase>false</ignoreCase>
+                <useRegEx>false</useRegEx>
+              </con:configuration>
+            </con:assertion>
+            <con:assertion type="JsonPath Match" id="4d23d6c8-5bdd-4bb9-9f23-f8ac273cdca9" name="JSONPath Match">
+              <con:configuration>
+                <path>$['verified']</path>
+                <content>true</content>
+                <allowWildcards>false</allowWildcards>
+                <ignoreNamspaceDifferences>false</ignoreNamspaceDifferences>
+                <ignoreComments>false</ignoreComments>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters/>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="transfer" name="Property Transfer" id="c1e8ba37-1745-4744-a2f4-f0750a3f84fb">
+        <con:settings/>
+        <con:config xsi:type="con:PropertyTransfersStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:transfers setNullOnMissingSource="true" transferTextContent="true" failOnError="true" ignoreEmpty="false" transferToAll="false" entitize="false" transferChildNodes="false">
+            <con:name>keyTransfer</con:name>
+            <con:sourceType>Response</con:sourceType>
+            <con:sourceStep>POSTRequest</con:sourceStep>
+            <con:sourcePath>$['id']</con:sourcePath>
+            <con:targetType>keyId</con:targetType>
+            <con:targetStep>DELETERequest</con:targetStep>
+            <con:targetPath/>
+            <con:type>JSONPATH</con:type>
+            <con:upgraded>true</con:upgraded>
+          </con:transfers>
+        </con:config>
+      </con:testStep>
+      <con:testStep type="restrequest" name="DELETERequest" id="cfdd095b-b95a-46e2-9c47-7c8d1e3a3464">
+        <con:settings/>
+        <con:config service="https://api.github.com" resourcePath="/user/keys/{keyId}" methodName="KeyId" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+          <con:restRequest name="DELETERequest" id="52bfb225-a044-4308-af83-745c1ac62154" mediaType="application/json" postQueryString="false">
+            <con:settings>
+              <con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting>
+            </con:settings>
+            <con:endpoint>https://api.github.com</con:endpoint>
+            <con:request/>
+            <con:originalUri>https://api.github.com/user/keys/80814051</con:originalUri>
+            <con:assertion type="Valid HTTP Status Codes" id="baa09639-09da-4fea-b6c2-07eda58bb36f" name="Valid HTTP Status Codes">
+              <con:settings/>
+              <con:configuration>
+                <codes>204</codes>
+              </con:configuration>
+            </con:assertion>
+            <con:credentials>
+              <con:selectedAuthProfile>No Authorization</con:selectedAuthProfile>
+              <con:authType>No Authorization</con:authType>
+            </con:credentials>
+            <con:jmsConfig JMSDeliveryMode="PERSISTENT"/>
+            <con:parameters>
+              <con:entry key="keyId" value="80817320"/>
+            </con:parameters>
+            <con:parameterOrder>
+              <con:entry>keyId</con:entry>
+            </con:parameterOrder>
+          </con:restRequest>
+        </con:config>
+      </con:testStep>
+      <con:properties/>
+      <con:reportParameters/>
+    </con:testCase>
+    <con:properties/>
+    <con:reportParameters/>
+  </con:testSuite>
+  <con:requirements/>
+  <con:properties/>
+  <con:wssContainer/>
+  <con:databaseConnectionContainer/>
+  <con:jmsConnectionContainer/>
+  <con:oAuth2ProfileContainer>
+    <con:oAuth2Profile>
+      <con:name>Asha</con:name>
+      <con:type>OAuth 2.0</con:type>
+      <con:accessToken>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</con:accessToken>
+      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
+      <con:accessTokenStatus>ENTERED_MANUALLY</con:accessTokenStatus>
+      <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
+      <con:oAuth2Flow>AUTHORIZATION_CODE_GRANT</con:oAuth2Flow>
+      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
+      <con:jwtConfiguration/>
+      <con:responseType>id_token</con:responseType>
+    </con:oAuth2Profile>
+  </con:oAuth2ProfileContainer>
+  <con:oAuth1ProfileContainer/>
+  <con:reporting>
+    <con:reportTemplates/>
+    <con:xmlTemplates/>
+    <con:xmlTemplates/>
+    <con:parameters/>
+    <con:parameters/>
+  </con:reporting>
+  <con:reporting/>
+  <con:eventHandlers type="RequestFilter.filterRequest" name="RequestFilter.filterRequest">
+    <con:script>// Sample event script to add custom HTTP header to all outgoing REST, SOAP and HTTP(S) calls
+// This code is often used for adding custom authentication to ReadyAPI functional tests
+
+// If hardcoding the token, uncomment and change line 5
+// token = '4567'
+
+// If your token is parameterized in Project level custom property, uncomment line 8
+// token = request.parent.testCase.testSuite.project.getProperty('auth_token').getValue()
+
+// To modify all outgoing calls, remove comments from lines 11 to 16
+// headers = request.requestHeaders
+// if (headers.containsKey('auth_token2') == false) {
+//   headers.put('auth_token2', token)
+//   request.requestHeaders = headers
+// }</con:script>
+  </con:eventHandlers>
+  <con:eventHandlers type="TestRunListener.afterStep" name="TestRunListener.afterStep">
+    <con:script>// Save all test step results into files
+// Change the directory path in line 5 to a location where you want to store details
+// then uncomment lines 5 to 10
+
+// filePath = 'C:\\tempOutputDirectory\\'
+// fos = new java.io.FileOutputStream(filePath + testStepResult.testStep.label + '.txt', true)
+// pw = new java.io.PrintWriter(fos)
+// testStepResult.writeTo(pw)
+// pw.close()
+// fos.close()</con:script>
+  </con:eventHandlers>
+  <con:authRepository>
+    <con:oAuth20AuthEntry>
+      <con:name>Asha</con:name>
+      <con:type>OAuth 2.0</con:type>
+      <con:accessToken>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</con:accessToken>
+      <con:accessTokenPosition>HEADER</con:accessTokenPosition>
+      <con:accessTokenStatus>ENTERED_MANUALLY</con:accessTokenStatus>
+      <con:accessTokenStartingStatus>ENTERED_MANUALLY</con:accessTokenStartingStatus>
+      <con:oAuth2Flow>AUTHORIZATION_CODE_GRANT</con:oAuth2Flow>
+      <con:refreshAccessTokenMethod>AUTOMATIC</con:refreshAccessTokenMethod>
+      <con:jwtConfiguration/>
+      <con:responseType>id_token</con:responseType>
+    </con:oAuth20AuthEntry>
+  </con:authRepository>
+  <con:tags/>
+</con:soapui-project>
