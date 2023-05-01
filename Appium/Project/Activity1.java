@@ -72,7 +72,7 @@ public class Activity1 {
 
         //com.google.android.apps.tasks:id/tasks_list
         List<WebElement> tasks = driver.findElements(AppiumBy.xpath("//android.support.v7.widget.RecyclerView[@resource-id='com.google.android.apps.tasks:id/tasks_list']/android.widget.FrameLayout"));
-        Assert.assertEquals(tasks.size(), 2);
+        Assert.assertEquals(tasks.size(), 3);
 
     }
 
