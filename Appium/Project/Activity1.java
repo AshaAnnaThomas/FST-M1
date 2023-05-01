@@ -68,6 +68,7 @@ public class Activity1 {
 
         driver.findElement(AppiumBy.xpath("//android.widget.EditText[@text='New task']")).sendKeys("Complete the second Activity Google Keep");
         driver.findElement(AppiumBy.id("add_task_done")).click();
+        Thread.sleep(1000);
 
         //com.google.android.apps.tasks:id/tasks_list
         List<WebElement> tasks = driver.findElements(AppiumBy.xpath("//android.support.v7.widget.RecyclerView[@resource-id='com.google.android.apps.tasks:id/tasks_list']/android.widget.FrameLayout"));
